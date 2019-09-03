@@ -36,23 +36,11 @@ Email Address []:Sven@home.org.au
 ## Key generation for a Server
 
 ```
-$ openssl genrsa -out server-key.pem 4096
-Generating RSA private key, 4096 bit long modulus
-.....................................................................++
-.................................................................................................++
-e is 65537 (0x10001)
+sh server-generator.sh <server-hostname> <server-ip>
+```
 
-$ openssl req -subj "/CN=$HOST" -sha256 -new -key server-key.pem -out server.csr
+## Key generation for a Client
 
-$ echo subjectAltName = DNS:$HOST,IP:10.10.10.20,IP:127.0.0.1 >> extfile.cnf
-
-$ echo extendedKeyUsage = serverAuth >> extfile.cnf
-
-$ openssl x509 -req -days 365 -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem \
-  -CAcreateserial -out server-cert.pem -extfile extfile.cnf
-  Signature ok
-  subject=/CN=your.host.com
-  Getting CA Private Key
-  Enter pass phrase for ca-key.pem:
-
+```
+sh client-generator.sh <client-hostname> <client-ip>
 ```
