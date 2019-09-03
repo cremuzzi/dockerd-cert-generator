@@ -1,6 +1,6 @@
 # Dockerd PKI Helpers
 
-a collection of scripts to help the creation of a CA, server and client keys with OpenSSL.
+a collection of scripts to help with the creation of a CA, server and client keys with OpenSSL.
 
 Based on the official Docker [documentation](https://docs.docker.com/engine/security/https/).
 
